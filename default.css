@@ -1,0 +1,99 @@
+/* reset.css v1.0 | 20080212 */
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    background: transparent;
+}
+body {
+    line-height: 1;
+}
+ol, ul {
+    list-style: none;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+
+/* remember to define focus styles! */
+:focus {
+    outline: 0;
+}
+
+/* remember to highlight inserts somehow! */
+ins {
+    text-decoration: none;
+}
+del {
+    text-decoration: line-through;
+}
+
+/* tables still need 'cellspacing="0"' in the markup */
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/* sarabeam.org styles */
+
+body {
+    background: #000000;
+}
+
+#header {
+    margin: 10px auto;
+    height: 260px;
+    background: transparent url(sarabeam_header.png) no-repeat center center;
+}
+
+#gallery {
+    height: 400px;
+}
+
+#gallery_frame {
+    overflow: hidden;
+    position: relative;
+}
+
+#gallery_frame div {
+    line-height: 20px;
+    color: #cccccc;
+    font-size: 12px;
+    top: 0px;
+    float: left;
+    width: 100%;
+    position: absolute;
+}
+
+#next_arrow, #prev_arrow {
+    display: block;
+    width: 100px;
+    height: 100%;
+}
+
+h1 {
+    margin: 20px 0px;
+    color: #bbbbbb;
+    font-size: 20px;
+}
+
+.wrapper, h1 {
+    font-family: georgia, trebuchet ms, serif;
+}
