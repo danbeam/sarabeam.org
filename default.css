@@ -61,13 +61,13 @@ body {
 #header {
     margin: 10px auto;
     height: 260px;
-    background: transparent url(sarabeam_header.png) no-repeat center center;
+    background: transparent url(layout/sarabeam_header.png) no-repeat center center;
 }
 
 #gallery_frame {
     margin: 10px auto;
     width: 825px;
-    height: 400px;
+    height: 555px;
 }
 
 #gallery_container {
@@ -102,5 +102,20 @@ body {
     width: 100px;
     height: 100%;
     float: left;
-    background: #333333;
+}
+
+#next_arrow {
+    background: transparent url(layout/next.png) no-repeat center center;
+}
+
+#prev_arrow {
+    background: transparent url(layout/prev.png) no-repeat center center;
+}
+
+#next_arrow:hover {
+    background-image: url(layout/next_over.png);
+}
+
+#prev_arrow:hover {
+    background-image: url(layout/prev_over.png);
 }

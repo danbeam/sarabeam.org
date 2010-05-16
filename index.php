@@ -14,18 +14,20 @@
 <div id="gallery_frame">
     <a id="prev_arrow" href="#prev"></a>
     <div id="gallery_container">
-        <div id="gallery_slider">
-<?php
+        <div id="gallery_slider"><?php
 
-    $dir = opendir('./gallery/');
+$dir = opendir('./gallery/');
 
-    for ($i = 0, $len = count(); $i < $len; ++$i) {
+while ($file = readdir($dir)) {
+    if ('.' !== $file && '..' !== $file) {
         echo '
-            <div><img src="' . $file . '" /></div>';
+            <div><img src="gallery/' . $file . '" width="625" /></div>';
     }
+}
 
 ?>
-    </div>
+
+        </div>
     </div>
     <a id="next_arrow" href="#next"></a>
 </div>
@@ -51,9 +53,9 @@
                     'slow',
                     'swing'
                 );
-                // don't bubble the event
-                e.preventDefault();
             }
+            // don't bubble the event
+            e.preventDefault();
         });
 
         // attach event handlers to prev / next
@@ -66,9 +68,9 @@
                     'slow',
                     'swing'
                 );
-                // don't bubble the event
-                e.preventDefault();
             }
+            // don't bubble the event
+            e.preventDefault();
         });
     });
 
