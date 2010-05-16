@@ -16,6 +16,7 @@ table, caption, tbody, tfoot, thead, tr, th, td {
     font-size: 100%;
     vertical-align: baseline;
     background: transparent;
+    z-index: 0;
 }
 body {
     line-height: 1;
@@ -63,37 +64,43 @@ body {
     background: transparent url(sarabeam_header.png) no-repeat center center;
 }
 
-#gallery {
+#gallery_frame {
+    margin: 10px auto;
+    width: 825px;
     height: 400px;
 }
 
-#gallery_frame {
-    overflow: hidden;
+#gallery_container {
     position: relative;
+    width: 625px;
+    height: 100%;
+    float: left;
+    overflow: hidden;
 }
 
-#gallery_frame div {
+#gallery_slider {
+    position: absolute;
+    float: left;
+    left: 0px;
+    top: 0px;
+    height: 100%;
+}
+
+#gallery_slider div {
     line-height: 20px;
     color: #cccccc;
     font-size: 12px;
-    top: 0px;
     float: left;
-    width: 100%;
-    position: absolute;
+    width: 625px;
+    font-family: georgia, trebuchet ms, serif;
+    font-size: 12px;
+    height: 100%;
 }
 
 #next_arrow, #prev_arrow {
     display: block;
     width: 100px;
     height: 100%;
-}
-
-h1 {
-    margin: 20px 0px;
-    color: #bbbbbb;
-    font-size: 20px;
-}
-
-.wrapper, h1 {
-    font-family: georgia, trebuchet ms, serif;
+    float: left;
+    background: #333333;
 }
