@@ -17,12 +17,19 @@
         <div id="gallery_slider"><?php
 
 $dir = opendir('./gallery/');
+$files = array();
 
 while ($file = readdir($dir)) {
-    if (preg_match('/png|gif|jpe?g/', end(explode('.', $file)))) {
-        echo '
-            <div><img src="gallery/' . $file . '" width="625" /></div>';
+    if (preg_match('/png|gif|jpe?g/i', $file)) {
+        $files[] = $file;
     }
+}
+
+sort($files);
+
+foreach ($files as $file) {
+    echo '
+            <div><img src="gallery/' . $file . '" width="625" /></div>';
 }
 
 ?>
