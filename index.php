@@ -1,4 +1,17 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<?php
+
+$dir = opendir('./gallery/');
+$files = array();
+
+while ($file = readdir($dir)) {
+    if (preg_match('/png|gif|jpe?g/i', $file)) {
+        $files[] = $file;
+    }
+}
+
+natcasesort($files);
+
+?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
@@ -14,27 +27,7 @@
 <div id="gallery_frame">
     <a id="prev_arrow" href="#prev"></a>
     <div id="gallery_container">
-        <div id="gallery_slider"><?php
-
-$dir = opendir('./gallery/');
-$files = array();
-
-while ($file = readdir($dir)) {
-    if (preg_match('/png|gif|jpe?g/i', $file)) {
-        $files[] = $file;
-    }
-}
-
-natcasesort($files);
-
-foreach ($files as $file) {
-    echo '
-            <div><img src="gallery/' . $file . '" width="625" /></div>';
-}
-
-?>
-
-        </div>
+        <div id="gallery_slider"></div>
     </div>
     <a id="next_arrow" href="#next"></a>
 </div>
@@ -44,6 +37,15 @@ foreach ($files as $file) {
 
     // when the page is ready
     $(function () {
+
+        var header  = '<div><img src="gallery/',
+            trailer = '" width="625" /></div>',
+            files   = [
+                '<?php echo implode($files,"',\n\t\t'"); ?>'
+            ];
+
+        // add the images to the gallery
+        $('#gallery_slider').append(header + files.join(trailer + header) + trailer);
 
         // set the width of the slider to 100% x number of slider panels
         $('#gallery_slider').each(function () {
