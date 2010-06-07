@@ -66,8 +66,8 @@ body {
 
 #gallery_frame {
     margin: 10px auto;
-    width: 825px;
-    height: 555px;
+    width: 833px;
+    height: 469px;
 }
 
 #gallery_container {
@@ -99,7 +99,7 @@ body {
 
 #next_arrow, #prev_arrow {
     display: block;
-    width: 100px;
+    width: 80px;
     height: 100%;
     float: left;
 }
@@ -112,10 +112,10 @@ body {
     background: transparent url(layout/prev.png) no-repeat center center;
 }
 
-#next_arrow:hover {
-    background-image: url(layout/next_over.png);
+#next_arrow, #prev_arrow {
+    border: 5px solid #000000;
 }
 
-#prev_arrow:hover {
-    background-image: url(layout/prev_over.png);
+#next_arrow:hover, #prev_arrow:hover {
+    border-color: #333333;
 }

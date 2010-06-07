@@ -54,12 +54,25 @@ natcasesort($files);
 
         // attach event handlers to prev / next
         $('#prev_arrow').click(function (e) {
+            // do some DOM queries and calculate some stuff
+            var $slider    = $('#gallery_slider'),
+                $frame     = $('#gallery_frame'),
+                $container = $('#gallery_container'),
+                offset     = parseInt($slider.css('left')),
+                current    = -offset/$container.outerWidth();
+
             // if we're not at the first slot
-            if (0 === $('#gallery_slider:animated').length && (parseInt($('#gallery_slider').css('left')) < 0)) {
+            if (!$slider.is(':animated') && offset < 0) {
+                // animate the height of the slider frame
+                $frame.animate(
+                    {'height': $slider.find('img:eq(' + (current-1) + ')').height()},
+                    1000,
+                    'swing'
+                );
                 // animate the slider to the left
-                $('#gallery_slider').animate(
+                $slider.animate(
                     {'left': '+=' + $('#gallery_container').outerWidth() + 'px'},
-                    'slow',
+                    1000,
                     'swing'
                 );
             }
@@ -69,11 +82,24 @@ natcasesort($files);
 
         // attach event handlers to prev / next
         $('#next_arrow').click(function (e) {
+            // do some DOM queries and calculate some stuff
+            var $slider    = $('#gallery_slider'),
+                $frame     = $('#gallery_frame'),
+                $container = $('#gallery_container'),
+                offset     = parseInt($slider.css('left')),
+                current    = -offset/$container.outerWidth();
+
             // if we're not at the first slot
-            if (0 === $('#gallery_slider:animated').length && ($('#gallery_slider').outerWidth() > -parseInt($('#gallery_slider').css('left')) + $('#gallery_container').outerWidth())) {
+            if (!$slider.is(':animated') && ($slider.outerWidth() > -offset + $container.outerWidth())) {
+                // animate the height of the slider frame
+                $frame.animate(
+                    {'height': $slider.find('img:eq(' + (current+1) + ')').height()},
+                    1000,
+                    'swing'
+                );
                 // animate the slider to the left
-                $('#gallery_slider').animate(
-                    {'left': '-=' + $('#gallery_container').outerWidth() + 'px'},
+                $slider.animate(
+                    {'left': '-=' + $container.outerWidth() + 'px'},
                     'slow',
                     'swing'
                 );
