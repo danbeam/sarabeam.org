@@ -4,7 +4,7 @@ $dir = opendir('./gallery/');
 $files = array();
 
 while ($file = readdir($dir)) {
-    if (preg_match('/png|gif|jpe?g/i', $file)) {
+    if (preg_match('/(png|gif|jpe?g)$/i', $file)) {
         $files[] = $file;
     }
 }
