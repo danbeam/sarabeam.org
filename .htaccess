@@ -1,0 +1,27 @@
+# do this because inode is different when clustered
+FileETag MTime Size
+
+# turn on far-future expiration dates to cache content longer (30 days)
+<IfModule mod_expires.c>
+ExpiresActive On
+ExpiresByType text/html                 A0
+ExpiresByType text/css                  A2592000
+ExpiresByType text/javascript           A2592000
+ExpiresByType application/javascript    A2592000
+ExpiresByType application/x-javascript  A2592000
+ExpiresByType image/gif                 A2592000
+ExpiresByType image/jpeg                A2592000
+ExpiresByType image/jpg                 A2592000
+ExpiresByType image/png                 A2592000
+</IfModule>
+
+# redirect hotdamntv.sarabeam.org to hotdamntv.com
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteCond %{HTTP_HOST} !^(www\.)?sarabeam.org$
+RewriteRule ^/?$ "http\:\/\/sarabeam\.org" [R=301,L]
+</IfModule>
+
+<FilesMatch "^error_log$">
+Deny from all
+</FilesMatch>
