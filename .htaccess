@@ -22,10 +22,6 @@ RewriteCond %{HTTP_HOST} !^(www\.)?sarabeam.org$
 RewriteRule ^/?$ "http\:\/\/sarabeam\.org" [R=301,L]
 </IfModule>
 
-<Directory .git/>
-Deny from all
-</Directory>
-
 <FilesMatch "error_log|README|\.sh$">
 Deny from all
 </FilesMatch>
