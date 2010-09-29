@@ -1,10 +1,11 @@
 #!/bin/bash
 
-rsync -rltDv $1 *           \
+rsync -rltDvn $1 *          \
 --delete                    \
 --omit-dir-times            \
 --exclude=*.sh              \
 --exclude=.git              \
 --exclude=.                 \
+--exclude=tests/            \
 --exclude=README            \
-danbeamo@danbeam.org:public_html/sarabeam/
+danbeamo@host240.hostmonster.org:public_html/sarabeam/
