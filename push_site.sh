@@ -1,6 +1,6 @@
 #!/bin/bash
 
-rsync -rltDvn $1 .          \
+rsync -rltDv $1 .           \
 --delete                    \
 --omit-dir-times            \
 --exclude=*.sh              \
