@@ -4,12 +4,12 @@
 <head profile="http://selenium-ide.openqa.org/profiles/test-case">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link rel="selenium.base" href="" />
-<title>horizontal slide</title>
+<title>horizontal_slide</title>
 </head>
 <body>
 <table cellpadding="1" cellspacing="1" border="1">
 <thead>
-<tr><td rowspan="1" colspan="3">horizontal slide</td></tr>
+<tr><td rowspan="1" colspan="3">horizontal_slide</td></tr>
 </thead><tbody>
 <tr>
 	<td>open</td>
@@ -17,14 +17,9 @@
 	<td></td>
 </tr>
 <tr>
-	<td>assertElementPresent</td>
-	<td>//div[@id='gallery_slider']</td>
-	<td>true</td>
-</tr>
-<tr>
-	<td>verifyElementPositionLeft</td>
-	<td>//div[@id='gallery_slider']/div[1]/img</td>
-	<td>183</td>
+	<td>assertValue</td>
+	<td>//*[@id=&quot;gallery_slider&quot;]/@style</td>
+	<td>width: 5200%;</td>
 </tr>
 <tr>
 	<td>click</td>
@@ -32,14 +27,14 @@
 	<td></td>
 </tr>
 <tr>
-	<td>waitForPageToLoad</td>
-	<td></td>
+	<td>pause</td>
+	<td>1500</td>
 	<td></td>
 </tr>
 <tr>
-	<td>verifyElementPositionLeft</td>
-	<td>//div[@id='gallery_slider']</td>
-	<td>-448</td>
+	<td>verifyValue</td>
+	<td>//*[@id=&quot;gallery_slider&quot;]/@style</td>
+	<td>width: 5200%; left: -625px;</td>
 </tr>
 <tr>
 	<td>click</td>
@@ -47,14 +42,14 @@
 	<td></td>
 </tr>
 <tr>
-	<td>waitForPageToLoad</td>
-	<td></td>
+	<td>pause</td>
+	<td>1500</td>
 	<td></td>
 </tr>
 <tr>
-	<td>verifyElementPositionLeft</td>
-	<td>//div[@id='gallery_slider']</td>
-	<td>-1073</td>
+	<td>verifyValue</td>
+	<td>//*[@id=&quot;gallery_slider&quot;]/@style</td>
+	<td>width: 5200%; left: -1250px;</td>
 </tr>
 <tr>
 	<td>click</td>
@@ -62,14 +57,29 @@
 	<td></td>
 </tr>
 <tr>
-	<td>waitForPageToLoad</td>
-	<td></td>
+	<td>pause</td>
+	<td>1500</td>
 	<td></td>
 </tr>
 <tr>
-	<td>verifyElementPositionLeft</td>
-	<td>//div[@id='gallery_slider']</td>
-	<td>-448</td>
+	<td>verifyValue</td>
+	<td>//*[@id=&quot;gallery_slider&quot;]/@style</td>
+	<td>width: 5200%; left: -625px;</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>prev_arrow</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1500</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>//*[@id=&quot;gallery_slider&quot;]/@style</td>
+	<td>width: 5200%; left: 0px;</td>
 </tr>
 
 </tbody></table>
