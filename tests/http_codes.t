@@ -25,7 +25,7 @@ $mech->title_is('sarabeam.org', 'Checking title of page');
 
 # look for images with no alts
 ok(!$mech->find_image(alt => ''), 'No images with blank alts');
-ok(!$mech->find_image(alt => undef), 'No images without alts');# forbidden URLs
+ok(!$mech->find_image(alt => undef), 'No images without alts');
 
 # check for jQuery and stylesheets
 $mech->content_like(qr{<script(?:[^>]+)src=(?:['"]?)http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js(?:['"]?)(?:[^>]*)></script>});
