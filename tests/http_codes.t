@@ -2,28 +2,40 @@
 
 use strict;
 
-use Test::More tests => 9;
+use Test::More tests => 13;
 use Test::WWW::Mechanize;
 
-my $base_url = 'http://sarabeam.org/';
+my $base_url = 'http://sarabeam.org';
 
 my $forbiddens = [
-    '/.git/',
-    '/.git/config',
-    '/.git/hooks/',
-    '/.git/hooks/pre-commit',
-    '/.git/hooks/pre-commit.sample',
-    '/push_site.sh',
-    '/pull_site.sh',
-    '/README',
+    $base_url . '/.git/',
+    $base_url . '/.git/config',
+    $base_url . '/.git/hooks/',
+    $base_url . '/.git/hooks/pre-commit',
+    $base_url . '/.git/hooks/pre-commit.sample',
+    $base_url . '/push_site.sh',
+    $base_url . '/pull_site.sh',
+    $base_url . '/README',
 ];
 
 my $mech = Test::WWW::Mechanize->new();
 
-$mech->get_ok( $base_url );
+# check the basics
+$mech->get_ok($base_url, 'Checking if page loads');
+$mech->title_is('sarabeam.org', 'Checking title of page');
+#$mech->links_ok('Checking all links');
 
-# forbiddens
-for my $url ( @{$forbiddens} ) {
-    $mech->get( $base_url . $url );
-    is( $mech->status(), 403, "Making sure $url is forbidden" );
-}
+# check for jQuery, make sure it's alive
+$mech->content_like(qr{<script(?:[^>]+)src=(?:['"]?)http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js(?:['"]?)(?:[^>]*)></script>});
+$mech->content_like(qr{<link(?:[^>]+)href=(?:['"]?)default.css(?:['"]?)(?:[^>]*)>});
+
+# make sure both jQuery and stylesheet are still alive
+$mech->head_ok('http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js');
+$mech->head_ok($base_url . '/default.css');
+
+# look for images with no alts
+ok(!$mech->find_image(alt => ''), 'No images with blank alts');
+ok(!$mech->find_image(alt => undef), 'No images without alts');# forbidden URLs
+
+# make sure private pages are Forbidden
+$mech->link_status_is($forbiddens, 403, "Making sure private URLS are forbidden");
