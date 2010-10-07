@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # run WWW::Mechanize test
-prove tests/*.t || exit 1;
+#prove tests/*.t || exit 1;
 
 # run client-side JS GUI tests
 export DISPLAY=":1.0";
