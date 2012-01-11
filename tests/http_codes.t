@@ -4,7 +4,7 @@ use strict;
 use Test::More tests => 16;
 use Test::WWW::Mechanize;
 
-my $base_url = 'http://sarabeam.org';
+my $base_url = 'http://sarabeam.dbhn';
 my $forbiddens = [
     $base_url . '/.git/',
     $base_url . '/.git/config',
